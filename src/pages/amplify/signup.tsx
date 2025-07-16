@@ -1,5 +1,4 @@
 "use client";
-import SignUpForm from "@/components/SignUpForm";
 import { confirmSignUp, signUp } from "@aws-amplify/auth";
 import "@aws-amplify/ui-react/styles.css";
 import { useState } from "react";
@@ -9,7 +8,7 @@ export default function SignUpFormPage() {
   const [password, setPassword] = useState("");
   const [code, setCode] = useState("");
   const [step, setStep] = useState<"signup" | "confirm">("signup");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleSignUp = async () => {
     setLoading(true);

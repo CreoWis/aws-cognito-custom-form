@@ -1,7 +1,7 @@
 "use client";
 
-import SignInForm from "@/components/SignInForm";
 import { AuthUser, getCurrentUser, signOut, signIn } from "@aws-amplify/auth";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function SignInFormPage() {
   const [user, setUser] = useState<AuthUser>();
@@ -24,7 +24,7 @@ export default function SignInFormPage() {
       console.log("User is logged in:", u);
       setUser(u);
     } catch (err) {
-      console.log("User is not logged in");
+      console.log(`User is not logged in ${err}`);
     }
     setLoading(false);
   };
@@ -37,6 +37,7 @@ export default function SignInFormPage() {
         username: email,
         password,
       });
+      console.error(`Signed in ${user}`);
       //   alert("Signed in");
     } catch (err) {
       setError(`${err}`);
@@ -98,9 +99,9 @@ export default function SignInFormPage() {
                 <label>
                   {" "}
                   No Account?{" "}
-                  <a href="/amplify/signup" className="text-blue-500">
+                  <Link href="/amplify/signup" className="text-blue-500">
                     Create one
-                  </a>
+                  </Link>
                 </label>
                 <div className="py-3">
                   {error ? (
