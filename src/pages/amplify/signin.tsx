@@ -64,13 +64,14 @@ export default function SignInFormPage() {
           <>
             {user ? (
               <div className="flex flex-col gap-2 justify-center items-center">
+                <h1>WELCOME</h1>
                 <label className="text-lg">{user.username}</label>
                 <div>
                   <button
-                    className="text-sm border cursor-pointer p-4"
                     onClick={() => {
                       handleSignout();
                     }}
+                    className="bg-blue-600 text-white px-4 py-2 cursor-pointer"
                   >
                     Signout
                   </button>
