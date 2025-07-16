@@ -48,7 +48,8 @@ export default function SignUpFormPage() {
         {loading ? (
           <label>Processing. Please wait...</label>
         ) : (
-          <div className="p-4 space-y-2">
+          <div className="p-4 space-y-2 items-center justify-center flex flex-col">
+            <h1>AWS Cognito demo using amplify</h1>
             {step === "signup" ? (
               <div className="flex flex-col gap-2 w-128">
                 <input
